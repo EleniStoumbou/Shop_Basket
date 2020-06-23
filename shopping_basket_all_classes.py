@@ -28,15 +28,15 @@ class Offers:
     
     def two_plus_one(self, plus_offer_prod):
         for product in self.bask_prod.keys():
-            if product in plus_offer_prod:
-                if self.bask_prod[product] > 2:
-                    self.bask_prod[product] = self.bask_prod[product] - int(self.bask_prod[product]/3)
+            if product in plus_offer_prod.keys():
+                if self.bask_prod[product] >= plus_offer_prod[product]:
+                    self.bask_prod[product] = self.bask_prod[product] - int(self.bask_prod[product]/plus_offer_prod[product])
         return self.bask_prod
 
-    def discount_offer(self, disc_offer_prod, disc = 0.25):
+    def discount_offer(self, disc_offer_prod):
         for product in self.bask_prod.keys():
-            if product in disc_offer_prod:
-                self.all_prod[product] = (1-disc) * self.all_prod[product]
+            if product in disc_offer_prod.keys():
+                self.all_prod[product] = (1 - disc_offer_prod[product]) * self.all_prod[product]
         return self.all_prod    
 
 
@@ -57,9 +57,9 @@ class Total_Costs:
     def disc_total(self, plus_offer_prod, disc_offer_prod, offer_plus, offer_disc):
         disc_total = 0
         for product, num in self.bask_prod.items():
-            if product in plus_offer_prod:
+            if product in plus_offer_prod.keys():
                 disc_total += self.all_prod[product] * offer_plus[product]
-            elif product in disc_offer_prod:
+            elif product in disc_offer_prod.keys():
                 disc_total += offer_disc[product] * num 
             else:
                 disc_total += self.all_prod[product] * num
@@ -78,8 +78,8 @@ catalogue = {
 
 
 products_i_want_to_buy = ["Biscuits", "Biscuits", "Shampoo Small", "Biscuits", "Biscuits", "Shampoo Small", "Sardines", "Baked Beans"]
-plus_offer_prod = "Biscuits"
-disc_offer_prod = "Shampoo Small"
+plus_offer_prod = {"Biscuits": 3}
+disc_offer_prod = {"Shampoo Small": 0.25}
 
 basket = Basket()
 
