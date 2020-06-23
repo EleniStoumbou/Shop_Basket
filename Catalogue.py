@@ -1,4 +1,4 @@
-def ex_catalogue():
+def exp_catalogue():
         return {
                 "Baked Beans" : 0.99, 
                 "Biscuits" : 1.20, 
