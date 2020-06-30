@@ -1,17 +1,29 @@
-from shopping_basket_functions import  Catalogue_Products, Basket
-from basket_class_alternatives import Basket_Two
-from Catalogue import ex_catalogue
+from shopping_basket_all_classes import Basket, Offers, Total_Costs, Items
+from catalogue import build_catalogue
 
-print(ex_catalogue())
+catalogue = build_catalogue()
 
 
-catalogue = Catalogue_Products("spagetti", 1.22)
-print(catalogue.product_name)
-print(catalogue.product_price)
-my_basket = Basket()
-print(my_basket.num_of_each(["spaggeti", "spaggeti", "chips"]))
+my_basket = ["Biscuits", "Biscuits", "Shampoo Small", "Biscuits", "Biscuits", "Shampoo Small", "Shampoo Large" , "Sardines", "Baked Beans"]
+plus_offer_prod = {"Biscuits": 3}
+disc_offer_prod = {"Baked Beans": 0.25}
+group_offer_prod = ["Shampoo Small", "Shampoo Medium", "Shampoo Large"]
+offer_num = 3
 
-my_basket_two = Basket_Two()
-print(my_basket_two.add_products("spaggeti"))
-print(my_basket_two.add_products("spaggeti"))
-print(my_basket_two.add_products("chips"))
+
+basket = Basket()
+
+offers = Offers(basket.num_of_each(my_basket), catalogue)
+
+
+cost = Total_Costs(basket.num_of_each(my_basket), catalogue)
+
+undiscount_total = cost.calculate_undiscount_total() 
+
+discount = cost.calculate_discount(offers, plus_offer_prod, disc_offer_prod, group_offer_prod, offer_num)
+discount_total = cost.calculate_final_total(offers, plus_offer_prod, disc_offer_prod, group_offer_prod, offer_num)
+
+
+print(undiscount_total)
+print(discount)
+print(discount_total)
