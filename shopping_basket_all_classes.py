@@ -1,15 +1,10 @@
 
-
 class Items:
-    
     def __init__(self, name, price):
         self.name = name
         self.price = price
 
-   
-
-class Basket:
-    
+class Basket: 
     def __init__(self):
         self.num_of_each_product = {}
 
@@ -20,9 +15,7 @@ class Basket:
                 self.num_of_each_product[product] = basket_products.count(product)
         return self.num_of_each_product
 
-
 class Offers:
-
     def __init__(self, bask_prod, all_prod):
         self.bask_prod =  bask_prod
         self.all_prod = all_prod
@@ -57,12 +50,10 @@ class Offers:
             
 
 class Total_Costs:
-
     def __init__(self, bask_prod, all_prod):
         self.bask_prod =  bask_prod
         self.all_prod = all_prod
       
-
     def calculate_undiscount_total(self):
         undisc_total = 0
         for product, num in self.bask_prod.items():
@@ -78,13 +69,3 @@ class Total_Costs:
         return round(final_total, 2)
 
     
-
-    
-catalogue = {
-            "Baked Beans" : 0.99, 
-            "Biscuits" : 1.20, 
-            "Sardines" : 1.89, 
-            "Shampoo Small" : 2.00,
-            "Shampoo Medium" : 2.50, 
-            "Shampoo Large" : 3.50
-            }

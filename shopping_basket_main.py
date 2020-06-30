@@ -1,15 +1,8 @@
 from shopping_basket_all_classes import Basket, Offers, Total_Costs, Items
-import Catalogue
+from Catalogue import build_catalogue
 
-catalogue = {
-            "Baked Beans" : 0.99, 
-            "Biscuits" : 1.20, 
-            "Sardines" : 1.89, 
-            "Shampoo Small" : 2.00,
-            "Shampoo Medium" : 2.50, 
-            "Shampoo Large" : 3.50
-            }
- 
+catalogue = build_catalogue()
+
 
 my_basket = ["Biscuits", "Biscuits", "Shampoo Small", "Biscuits", "Biscuits", "Shampoo Small", "Shampoo Large" , "Sardines", "Baked Beans"]
 plus_offer_prod = {"Biscuits": 3}
