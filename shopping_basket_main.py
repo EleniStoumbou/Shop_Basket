@@ -1,5 +1,5 @@
 from shopping_basket_all_classes import Basket, Offers, Total_Costs, Items
-from Catalogue import build_catalogue
+from catalogue import build_catalogue
 
 catalogue = build_catalogue()
 

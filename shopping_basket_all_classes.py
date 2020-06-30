@@ -33,7 +33,7 @@ class Offers:
         offer = 0
         for product in self.bask_prod.keys():
             if product in disc_offer_prod.keys():
-                offer += (1 - disc_offer_prod[product]) * self.bask_prod[product] * self.all_prod[product] 
+                offer += (disc_offer_prod[product]) * self.bask_prod[product] * self.all_prod[product] 
         return offer  
 
     def grouped_offer(self, group_offer_prod, offer_num):
